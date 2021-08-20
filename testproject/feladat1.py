@@ -20,7 +20,8 @@ characters_name_teams = {
 
 # dict-be név + csapatok
 for c in characters_input:
-    characters_name_teams[f"{c.get_attribute('id')}"] = c.get_attribute('data-teams')
+    teams = str(c.get_attribute('data-teams')).split()
+    characters_name_teams[f"{c.get_attribute('id')}"] = teams
 
 # ellenőrzés: iceman
 assert team_1 in characters_name_teams['iceman']

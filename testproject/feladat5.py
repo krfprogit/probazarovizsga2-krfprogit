@@ -8,15 +8,22 @@ URL = "https://witty-hill-0acfceb03.azurestaticapps.net/periodic_table.html"
 browser.get(URL)
 browser.maximize_window()
 
-# time.sleep(2)
-# browser.quit()
-
-
+# file beolvasás
 with open('data.txt', 'r', encoding="UTF-8") as f:
     txt_lines = f.readlines()
-    print(type(txt_lines))
-    print(txt_lines)
 
-print('--------')
+elemek_nev_sorszam = {
+    "elem_név": "elem_sorszám"
+}
+
 for s in txt_lines:
-    print(s, end='')
+    elem = s.split(', ')
+    if elem[1].endswith('\n'):
+        elem[1] = elem[1][:-1]
+    elemek_nev_sorszam[f'{elem[1]}'] = elem[0]
+
+for k, v in elemek_nev_sorszam.items():
+    print(v, ":", k)
+
+# time.sleep(2)
+# browser.quit()

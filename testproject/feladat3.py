@@ -20,7 +20,7 @@ szam_input = browser.find_element_by_xpath('/html/body/div/div[2]/input')
 bevitel_gomb = browser.find_element_by_xpath('/html/body/div/div[2]/span/button')
 valasz_uzenet_1 = browser.find_element_by_xpath('/html/body/div/p[5]')
 valasz_uzenet_2 = browser.find_element_by_xpath('/html/body/div/p[3]')
-szamlalo_app = browser.find_element_by_xpath('/html/body/div/div[3]/p/span')
+szamlalo_app = browser.find_element_by_xpath('//span[@class="badge ng-binding"]').text
 restart_gomb = browser.find_element_by_xpath('/html/body/div/div[1]/div[2]/button')
 
 while True:
@@ -42,6 +42,10 @@ print('szám: ', szam_megtalalt)
 print("lépések: ", lepesek_szama)
 
 assert valasz_uzenet_1.text == 'Yes! That is it.'
+
+# TC02
+print("lépések: ", lepesek_szama)
+# print(szamlalo_app)
 
 # time.sleep(2)
 # browser.quit()
